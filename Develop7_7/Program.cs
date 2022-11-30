@@ -1,42 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MyClassLibrary;
 
 namespace Develop7_7
 {
 	internal class Program
-	{
-		abstract class Delivery
-		{
-			public string Address { get; private set; }
-
-			public Delivery(string address)
-			{
-				Address = address;
-			}
-			public abstract void Deliver();
-		}
-		abstract class Person
-		{
-			public string Name { get; private set; }
-			public Contact contact;
-			public Person(string name, Contact contact)
-			{
-				Name = name;
-				this.contact = contact;
-			}
-		}
-		class Contact
-		{
-			public string PhoneNumber { get; set; }
-			public Contact(string phoneNumber)
-			{
-				PhoneNumber = phoneNumber;
-			}
-			public void Call()
-			{
-				Console.WriteLine("Звонить");
-			}
-		}
+	{				
 		static class CourierCollection
 		{
 			public static List<Courier> list;
@@ -65,10 +32,11 @@ namespace Develop7_7
 			public Customer(string name, Contact contact) : base(name, contact)
 			{
 			}
-			/*public void BuyProduct(Product )
+			public ProductCollection BuyProduct(Product[] products)
 			{
-				Console.WriteLine("Доставка курьером по адресу: {0}", );
-			}*/
+				var productCollection = new ProductCollection(products);
+				return productCollection; 
+			}
 		}
 		abstract class Company
 		{
@@ -106,7 +74,6 @@ namespace Develop7_7
 		class HomeDelivery : Delivery
 		{
 			public bool СourierDelivery { get; private set; }
-			private Courier courier;
 			private CourierCompany company;
 			private ProductCollection products;
 			private const double MaxWeights = 20;
@@ -115,7 +82,7 @@ namespace Develop7_7
 			{
 				this.products = products;
 				double sumWeights = 0.0;
-				foreach (Product product in products.collection)
+				foreach (Product product in this.products.collection)
 					sumWeights += product.Weight;
 				if (sumWeights <= MaxWeights)
 					СourierDelivery = true;
@@ -171,8 +138,28 @@ namespace Develop7_7
 		{
 			public string Title { get; private set; }
 			public string Description { get; private set; }
-			public double Price { get; private set; }
+
+			private const double discount = 0.1;
+			
+			public double DiscountPrice { get { return Price - Price*discount; } }
+
+			private double price;
+			public double Price
+			{
+				get
+				{
+					DateTime dateTime = new DateTime();
+					if (dateTime.DayOfWeek == DayOfWeek.Friday)
+						return DiscountPrice;					
+					else return price;
+				}
+				private set
+				{ 
+					price = value;
+				}
+			}
 			public double Weight { get; private set; }
+			
 			public Product(string title, string description, double price, double weight)
 			{
 				Title = title;
@@ -232,9 +219,9 @@ namespace Develop7_7
 		where TClass : class
 		{
 			public ProductCollection products;
-			public Order(Delivery delivery, Product[] products, int number, string description)
+			public Order(Delivery delivery, ProductCollection products, int number, string description)
 			{
-				this.products = new ProductCollection(products);
+				this.products = products;
 				this.delivery = (TDelivery)delivery;
 				Number = number;
 				Description = description;
@@ -242,9 +229,9 @@ namespace Develop7_7
 
 			public TDelivery delivery;
 
-			public int Number;
+			public int Number { get; private set; }
 
-			public string Description;
+			public string Description { get; private set; }
 
 			public void DisplayAddress()
 			{
@@ -253,6 +240,7 @@ namespace Develop7_7
 		}
 		static void Main(string[] args)
 		{
+			
 			Console.WriteLine();
 			Console.ReadLine();
 		}
