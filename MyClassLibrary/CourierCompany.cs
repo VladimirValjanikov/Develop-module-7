@@ -1,9 +1,10 @@
 ﻿namespace MyClassLibrary
 {
 	public class CourierCompany : Company
-	{
+	{		
 		public CourierCompany(Contact contact) : base(contact)
 		{
+			
 		}
 		public override void Deliver(string address)
 		{

@@ -14,7 +14,7 @@
 		{
 			get
 			{
-				DateTime dateTime = new DateTime();
+				var dateTime = new DateTime();
 				if (dateTime.DayOfWeek == DayOfWeek.Friday)
 					return DiscountPrice;
 				else return price;

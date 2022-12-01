@@ -1,6 +1,6 @@
 ﻿namespace MyClassLibrary
 {
-	static class CourierCollection
+	public class CourierCollection
 	{
 		public static List<Courier> list;
 		static CourierCollection()
@@ -11,6 +11,6 @@
 					new Courier("Popov", new Contact("+7(920)...")),
 					new Courier("Petrov", new Contact("+7(910)..."))
 				};
-		}
+		}		
 	}
 }

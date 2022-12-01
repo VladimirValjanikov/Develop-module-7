@@ -1,6 +1,6 @@
 ﻿namespace MyClassLibrary
 {
-	class Courier : Person
+	public class Courier : Person
 	{
 		public Courier(string name, Contact contact) : base(name, contact)
 		{
