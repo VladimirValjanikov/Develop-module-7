@@ -2,13 +2,20 @@
 {
 	public class Customer : Person
 	{
-		public Customer(string name, Contact contact) : base(name, contact)
+		public List<Product> collection = new List<Product>();
+
+        public Customer(string name, Contact contact) : base(name, contact)
 		{
 		}
-		public ProductCollection BuyProduct(Product[] products)
+		public ProductCollection BuyProduct(Product product)
 		{
-			var productCollection = new ProductCollection(products);
-			return productCollection;
-		}
+			collection.Add(product);
+            var productCollection = new ProductCollection(collection);
+            return productCollection;
+
+            //Product[] products = new Product[0];			
+            /*var productCollection = new ProductCollection(products);
+			return productCollection;*/
+        }
 	}
 }

@@ -2,9 +2,9 @@
 {
 	public class ProductCollection
 	{
-		public Product[] collection;
-
-		public ProductCollection(Product[] collection)
+		//public Product[] collection;
+		List<Product> collection;   
+		public ProductCollection(List<Product> collection)
 		{
 			this.collection = collection;
 		}
@@ -12,7 +12,7 @@
 		{
 			get
 			{
-				if (index >= 0 && index < collection.Length)
+				if (index >= 0 && index < collection.Count)
 				{
 					return collection[index];
 				}
@@ -23,7 +23,7 @@
 			}
 			private set
 			{
-				if (index >= 0 && index < collection.Length)
+				if (index >= 0 && index < collection.Count)
 				{
 					collection[index] = value;
 				}
@@ -33,7 +33,7 @@
 		{
 			get
 			{
-				for (int i = 0; i < collection.Length; i++)
+				for (int i = 0; i < collection.Count; i++)
 				{
 					if (collection[i].Title == title)
 					{

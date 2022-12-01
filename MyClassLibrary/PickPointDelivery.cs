@@ -12,10 +12,15 @@
 		{
 			for (int i = 0; i < PickPointsAddresses.Length; i++)
 			{
-				if (PickPointsAddresses[i] == Address)									
-					shopCompany.Deliver(Address);				
-				else
-					Console.WriteLine("Выберите другой пункт выдачи");
+				if (PickPointsAddresses[i] == Address)
+				{
+					shopCompany.Deliver(Address);
+					break;
+				}
+				if (i == PickPointsAddresses.Length - 1)
+				{
+                    Console.WriteLine("Выберите другой пункт выдачи");
+                }
 			}
 		}
 	}

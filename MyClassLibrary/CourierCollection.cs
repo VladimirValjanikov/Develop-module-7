@@ -1,6 +1,6 @@
 ﻿namespace MyClassLibrary
 {
-	public class CourierCollection
+	static class CourierCollection
 	{
 		public static List<Courier> list;
 		static CourierCollection()
