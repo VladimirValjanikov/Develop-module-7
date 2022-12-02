@@ -1,6 +1,6 @@
 ﻿namespace MyClassLibrary
 {
-	public class CourierCompany : Company
+	public class CourierCompany : Company<Contact>
 	{		
 		public CourierCompany(Contact contact) : base(contact)
 		{			

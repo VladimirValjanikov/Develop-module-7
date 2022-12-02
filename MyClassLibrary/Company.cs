@@ -1,9 +1,9 @@
 ﻿namespace MyClassLibrary
 {
-	public abstract class Company
+	public abstract class Company<T>
 	{
-		public Contact contact;
-		public Company(Contact contact)
+		protected T contact;
+		public Company(T contact)
 		{
 			this.contact = contact;
 		}

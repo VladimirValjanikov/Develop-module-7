@@ -11,7 +11,7 @@
 		{
 			this.products = products;
 			double sumWeights = 0.0;
-			foreach (Product product in this.products.collection)
+			foreach (Product<string> product in this.products.collection)
 				sumWeights += product.Weight;
 			if (sumWeights <= MaxWeights)
 				СourierDelivery = true;
@@ -21,7 +21,7 @@
 			if (СourierDelivery)
 			{
 				Random rand = new Random();
-				CourierCollection.list[rand.Next(2)].Deliver(Address);
+				CourierCollection.ListCourier[rand.Next(2)].Deliver(Address);
 			}
 			else
 			{

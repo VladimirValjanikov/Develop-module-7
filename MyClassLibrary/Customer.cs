@@ -2,17 +2,17 @@
 {
 	public class Customer : Person
 	{
-		public List<Product> collection;
-		public ProductCollection productCollection;
+		public List<Product<string>> Collection { get; private set; }
+		public ProductCollection ProductCollection { get; private set; }
 		public Customer(string name, Contact contact) : base(name, contact)
 		{
-			collection = new List<Product>();
-			productCollection = new ProductCollection(collection);
+			Collection = new List<Product<string>>();
+			ProductCollection = new ProductCollection(Collection);
 		}
-		public void BuyProduct(Product product)
+		public void BuyProduct(Product<string> product)
 		{
-			collection.Add(product);
-			productCollection.collection = collection;
+			Collection.Add(product);
+			ProductCollection.collection = Collection;
         }
 	}
 }
