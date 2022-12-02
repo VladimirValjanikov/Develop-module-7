@@ -2,8 +2,7 @@
 {
 	public class ProductCollection
 	{
-		//public Product[] collection;
-		List<Product> collection;   
+		public List<Product> collection;   
 		public ProductCollection(List<Product> collection)
 		{
 			this.collection = collection;

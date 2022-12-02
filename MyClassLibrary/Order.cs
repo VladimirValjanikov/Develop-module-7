@@ -1,13 +1,14 @@
 ﻿namespace MyClassLibrary
 {
-	public class Order<TDelivery, TClass>
+	public class Order<TDelivery>
 		where TDelivery : Delivery
-		where TClass : class
 	{
-		public ProductCollection products;
-		public Order(Delivery delivery, ProductCollection products, int number, string description)
+		public Customer Customer { get; private set; }
+		public ProductCollection Products { get; private set; }
+		public Order(Customer customer, Delivery delivery, ProductCollection products, int number, string description)
 		{
-			this.products = products;
+			Customer = customer;	
+			Products = products;
 			this.delivery = (TDelivery)delivery;
 			Number = number;
 			Description = description;
