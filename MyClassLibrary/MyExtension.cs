@@ -2,10 +2,10 @@
 {
 	public static class MyExtension
 	{
-		public static string GetDescription(this Product<string> product, string number)
+		public static string GetDescription(this Product product, string number)
 		{
-			Console.WriteLine("Расширенная логика получения серийного номера товара: ", product.Title);
-			product.SerialNumber = number + "1";
+			Console.Write("Расширенная логика получения серийного номера товара {0}: ", product.Title);
+			product.SerialNumber = number + "n";
 			return product.SerialNumber;
 		}
 	}

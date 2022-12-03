@@ -2,12 +2,12 @@
 {
 	public class ProductCollection
 	{
-		public List<Product<string>> collection;   
-		public ProductCollection(List<Product<string>> collection)
+		public List<Product> collection;   
+		public ProductCollection(List<Product> collection)
 		{
 			this.collection = collection;
 		}
-		public Product<string> this[int index]
+		public Product this[int index]
 		{
 			get
 			{
@@ -28,7 +28,7 @@
 				}
 			}
 		}
-		public Product<string> this[string title]
+		public Product this[string title]
 		{
 			get
 			{

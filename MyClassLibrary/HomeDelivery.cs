@@ -11,7 +11,7 @@
 		{
 			this.products = products;
 			double sumWeights = 0.0;
-			foreach (Product<string> product in this.products.collection)
+			foreach (Product product in this.products.collection)
 				sumWeights += product.Weight;
 			if (sumWeights <= MaxWeights)
 				СourierDelivery = true;
